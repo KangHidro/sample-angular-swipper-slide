@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { SafeResourceUrl } from '@angular/platform-browser';
 import { GetImageSrcDirective } from '@widget/directives/get-image-src.directive';
-import { register } from 'swiper/element/bundle';
+import { register, SwiperContainer } from 'swiper/element/bundle';
 register();
 
 const plugins = [
@@ -20,7 +20,7 @@ const plugins = [
 })
 export class HomeSliderComponent implements AfterViewInit {
 
-  @ViewChild('swiper') swiperEl!: ElementRef;
+  @ViewChild('swiper') swiperEl!: ElementRef<SwiperContainer>;
   @Input() listBannerId: string[] = [];
 
   listBannerSrc: { [key: string]: SafeResourceUrl; } = {};
